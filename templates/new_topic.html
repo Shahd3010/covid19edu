@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{%block title%}add new topic{%endblock%}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Topic</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'board_topics' boards.pk %}">{{ boards.name }}</a></li>
+  <li class="breadcrumb-item active">New topic</li>
+{% endblock %}
+{%block content%}
+  <form method="post" >
+    {%csrf_token %}
+    {%include 'includes/form.html'%}
+    <button type="submit" class="btn btn-success">Add post</button>
+  </form>
+{% endblock %}
+
+
